@@ -3,9 +3,15 @@ import { Button } from "./components/ui/button"
 import { Dialog, DialogTrigger } from "./components/ui/dialog"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/ui/table"
 import CreateProductDialog from "./components/create-product-dialog"
+import { useQuery } from "@tanstack/react-query"
+import { getProducts, type Product } from "./data/product"
 
 
 function App() {
+  const { data: products } = useQuery<Product[]>({
+    queryKey: ["products"],
+    queryFn: getProducts,
+  })
 
 
   return (
@@ -36,7 +42,7 @@ function App() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {/* {filteredProducts.map((product) => {
+            {products?.map((product) => {
               return (
                 <TableRow key={product.id}>
                   <TableCell>{product.id}</TableCell>
@@ -44,7 +50,7 @@ function App() {
                   <TableCell>{product.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</TableCell>
                 </TableRow>
               )
-            })} */}
+            })}
           </TableBody>
         </Table>
       </div>

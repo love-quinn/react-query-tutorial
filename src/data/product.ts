@@ -1,3 +1,9 @@
+export interface Product {
+    id: number;
+    name: string;
+    price: number;
+}
+
 export async function getProducts() {
     // 1s delay
     await new Promise((resolve) => setTimeout(resolve, 1000))
