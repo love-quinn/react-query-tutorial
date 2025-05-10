@@ -5,6 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from ".
 import CreateProductDialog from "./components/create-product-dialog"
 import { useQuery } from "@tanstack/react-query"
 import { getProducts, type Product } from "./data/product"
+import ProductFilters from "./components/product-filters"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <h1 className="text-3xl font-bold">Produtos</h1>
 
       <div className="flex items-center justify-between">
+        <ProductFilters/>
         <Dialog>
           <DialogTrigger asChild>
             <Button>
@@ -54,7 +56,6 @@ function App() {
           </TableBody>
         </Table>
       </div>
-
     </div>
   )
 }

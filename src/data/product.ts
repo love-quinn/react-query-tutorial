@@ -4,6 +4,8 @@ export interface Product {
     price: number;
 }
 
+
+
 export async function getProducts() {
     // 1s delay
     await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -19,4 +21,16 @@ export async function getProducts() {
         { id: 647, name: "Product 647", price: 29 },
         { id: 491, name: "Product 491", price: 58 },
     ]
+}
+
+export interface CreateProductRequest {
+    name: string;
+    price: number;
+}
+
+export async function createProduct(_: CreateProductRequest) {
+    // 1s delay
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    return
 }
